@@ -1,0 +1,22 @@
+{
+  "name": "yonyou-financial-tables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marvintau/yonyou-financial-tables.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "persisted": "marvintau/persisted"
+  },
+  "bugs": {
+    "url": "https://github.com/marvintau/yonyou-financial-tables/issues"
+  },
+  "homepage": "https://github.com/marvintau/yonyou-financial-tables#readme"
+}

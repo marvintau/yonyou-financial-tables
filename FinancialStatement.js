@@ -55,14 +55,14 @@ export default{
         // sum up the accrual within the category through all the periods.
         .grip(e => e.get('ccode'), '科目')
         .iter((key, val) => {
-            let sorted = val.tros(e => `${e.get('iyear')-e.get('iperiod')}`).reverse(),
+            let sorted = val.ordr(e => `${e.get('iyear')-e.get('iperiod')}`).reverse(),
                 accrualSum = sumAccrual(sorted),
                 {mc, md} = accrualSum.cols;
             return new Record({...sorted[0].cols, mc, md});
         }).grap()
 
         // then form the cascaded records for path searching.
-        .tros(e => e.get('ccode'))
+        .ordr(e => e.get('ccode'))
         .cascade(rec=>rec.get('ccode').length, (desc, ances) => {
             let descCode = desc.get('ccode'),
                 ancesCode = ances.get('ccode');

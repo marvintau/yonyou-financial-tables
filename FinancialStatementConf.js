@@ -25,7 +25,7 @@ export default {
         let category = new List(...CATEGORY.data.map(e => new Record(e)))
         .map(e => [e, new Record({...e.cols, ccode:e.cols.ccode+'00', ccode_name:'全部'})])
         .flat()
-        .tros(e => e.get('ccode'))
+        .ordr(e => e.get('ccode'))
         .cascade(rec=>rec.get('ccode').length, (desc, ances) => {
             let descCode = desc.get('ccode'),
                 ancesCode = ances.get('ccode');
