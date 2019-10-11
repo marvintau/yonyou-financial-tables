@@ -14,22 +14,18 @@ export default {
             me:         'Float',
         })
 
-        head.setColProp({colDesc: "科目名称"}, 'ccode_name')
-        head.setColProp({colDesc: "科目编码"}, 'ccode'     )
-        head.setColProp({colDesc: "科目类别"}, 'cclass'    )
-        head.setColProp({colDesc: '期初金额'}, 'mb'        )
-        head.setColProp({colDesc: '期末金额'}, 'me'        )
-        
-        head.setColProp({isExpandToggler: true}, 'ccode_name');
-
-        // console.log(BALANCE.data.filter(e => e.ccode_name === '交易性金融资产'))
+        head.setColProp({colDesc: "科目名称", isExpandToggler: true}, 'ccode_name')
+        head.setColProp({colDesc: "科目编码"}, 'ccode' )
+        head.setColProp({colDesc: "科目类别"}, 'cclass')
+        head.setColProp({colDesc: '期初金额'}, 'mb'    )
+        head.setColProp({colDesc: '期末金额'}, 'me'    )
 
         let balanceData = (new List(...BALANCE.data)).map(entry => head.createRecord(entry));
         let data = balanceData
-            .grip(rec => rec.get('iyear'), '年')
+            .grip(rec => rec.get('iyear'), {desc:'年'})
             .iter((key, recs) => {
                 return recs
-                    .grip((rec) => rec.get('iperiod'), '期间')
+                    .grip((rec) => rec.get('iperiod'), {desc: '期间'})
                     .iter((key, codeRecs) => {
                         return codeRecs
                             .ordr(e => e.get('ccode'))
@@ -37,15 +33,13 @@ export default {
                                 let descCode = desc.get('ccode'),
                                     ancesCode = ances.get('ccode');
                                 return descCode.slice(0, ancesCode.length).includes(ancesCode)
-                            }, '按科目级联');
-                    }, '科目')
+                            });
+                    })
             });
 
-            console.log(balanceData, 'balanceData');
-
         return {head, data, tableAttr:{
-            expandable: true,
-            editable:true
+            // expandable: true,
+            // editable:true
         }};
     },
     desc: '每期间科目余额',

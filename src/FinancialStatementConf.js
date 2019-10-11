@@ -1,4 +1,4 @@
-import {Record, List, Header} from 'persisted';
+import {Record, List, Head} from 'persisted';
 
 import FinancialStatementDetails from './local/financialStatementDetails.txt.json';
 
