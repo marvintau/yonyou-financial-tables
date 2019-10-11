@@ -1,4 +1,4 @@
-import {Record, List, Header} from 'mutated';
+import {Record, List, Header} from 'persisted';
 
 import CashflowStatementDirectDetails from './local/cashflowStatementDirectDetails.txt.json';
 

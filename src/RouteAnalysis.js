@@ -1,4 +1,4 @@
-import {Record, List, Head} from 'mutated';
+import {Record, List, Head} from 'persisted';
 
 // voucherHead是凭证的表头，作为科目发生额分析的子表
 let voucherHead = new Head({
