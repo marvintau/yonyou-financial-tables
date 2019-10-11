@@ -38,8 +38,8 @@ export default {
             });
 
         return {head, data, tableAttr:{
-            // expandable: true,
-            // editable:true
+            expandable: true,
+            editable:true
         }};
     },
     desc: '每期间科目余额',

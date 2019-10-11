@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "persisted": "marvintau/persisted"
+    "persisted": "github:marvintau/persisted"
   },
   "bugs": {
     "url": "https://github.com/marvintau/yonyou-financial-tables/issues"
